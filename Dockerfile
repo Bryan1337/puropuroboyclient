@@ -20,7 +20,7 @@ RUN wget -qO /root/DreamBot/Scripts/PuroPuroBoy-1.0.0-dep-included.jar https://g
 # Make folder for configs
 RUN mkdir -p /root/DreamBot/Scripts/Bun/AutomationTool
 # Download automation script
-RUN wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroboyautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroboyautomation.cfg
+RUN wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroautomation.cfg
 
 # Make client executable
 RUN chmod u+x DBLauncher.jar
@@ -28,6 +28,9 @@ RUN chmod u+x DBLauncher.jar
 # Run initial client build and timeout after the files have been loaded
 # Pipe command so exit codes are ignored (timeout returns ecode 124)
 RUN timeout 15 xvfb-run java -jar DBLauncher.jar || :
+
+# Expose mule ports
+EXPOSE 6565 6565
 
 # Run start script on startup
 CMD wget -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh | sh
