@@ -15,5 +15,5 @@ echo $DB_USERNAME
 echo $DB_PASSWORD
 echo "--------"
 
-echo xvfb-run -a java --illegal-access=permit -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool - Lifetime" -username "$DB_USERNAME" -password "$DB_PASSWORD" -covert -accountUsername "$CLIENT_USERNAME" -accountPassword "$CLIENT_PASSWORD" -render "none" -no-fresh -world "f2p" -params config=puropuroautomation
-xvfb-run -a java --illegal-access=permit -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool - Lifetime" -username "$DB_USERNAME" -password "$DB_PASSWORD" -covert -accountUsername "$CLIENT_USERNAME" -accountPassword "$CLIENT_PASSWORD" -render "none" -no-fresh -world "f2p" -params config=puropuroautomation
+echo xvfb-run -a java --illegal-access=permit -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool - Lifetime" -username "$DB_USERNAME" -password "$DB_PASSWORD" -covert -accountUsername "$CLIENT_EMAIL" -accountPassword "$CLIENT_PASSWORD" -render "none" -no-fresh -world "f2p" -params config=puropuroautomation
+xvfb-run -a java --illegal-access=permit -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool - Lifetime" -username "$DB_USERNAME" -password "$DB_PASSWORD" -covert -accountUsername "$CLIENT_EMAIL" -accountPassword "$CLIENT_PASSWORD" -render "none" -no-fresh -world "f2p" -params config=puropuroautomation
