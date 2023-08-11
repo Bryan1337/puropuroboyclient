@@ -30,7 +30,10 @@ RUN chmod u+x DBLauncher.jar
 RUN timeout 15 xvfb-run java -jar DBLauncher.jar || :
 
 # Fetch start script
-RUN wget -qO /root/start.sh https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh
+RUN wget -qO /root/start.sh
+
+# Make start script executable
+RUN chmod u+x /root/start.sh
 
 # Run start script on startup
-CMD [".", "/root/start.sh"]
+CMD wget -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh | sh
