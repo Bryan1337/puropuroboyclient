@@ -5,8 +5,6 @@ $(wget -qO- https://api.overdu.in/client/inactive | awk -F':' "{printf \"export 
 
 # Start client
 
-ls -lhart
-
 cd /root
 
 echo "----CLIENT CREDENTIALS----"
@@ -17,5 +15,4 @@ echo $DB_USERNAME
 echo $DB_PASSWORD
 echo "--------"
 
-ls -lhart
 xvfb-run -a java -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool" -username "$DB_USERNAME" -password "$DB_PASSWORD" -covert -accountUsername "$CLIENT_USERNAME" -accountPassword "$CLIENT_PASSWORD" -render "none" -no-fresh -world "members" -params config=puropuroboyautomation
