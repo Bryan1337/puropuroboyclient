@@ -12,15 +12,15 @@ RUN apt-get install wget -y
 # Download DreamBot client
 RUN wget https://dreambot.org/DBLauncher.jar
 
-# Make folder for configs
-RUN mkdir -p /root/DreamBot/Data/Bun/AutomationTool/
-# Download automation script
-RUN wget -qO /root/DreamBot/Data/Bun/AutomationTool/puropuroboyautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroboyautomation.cfg
-
 # Make folder for scripts
 RUN mkdir -p /root/DreamBot/Scripts/
 # Download PuroPuroBoy
 RUN wget -qO /root/DreamBot/Scripts/PuroPuroBoy-1.0.0-dep-included.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoy-1.0.0-dep-included.jar
+
+# Make folder for configs
+RUN mkdir -p /root/DreamBot/Scripts/Bun/AutomationTool
+# Download automation script
+RUN wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroboyautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroboyautomation.cfg
 
 # Make client executable
 RUN chmod u+x DBLauncher.jar
