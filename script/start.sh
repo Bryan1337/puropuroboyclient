@@ -15,5 +15,5 @@ echo $DB_USERNAME
 echo $DB_PASSWORD
 echo "--------"
 
-echo xvfb-run -a java -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool" -username $DB_USERNAME -password $DB_PASSWORD -covert -accountUsername $CLIENT_USERNAME -accountPassword $CLIENT_PASSWORD -render "none" -no-fresh -world "members" -params config=puropuroboyautomation
-xvfb-run -a java -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool" -username $DB_USERNAME -password $DB_PASSWORD -covert -accountUsername $CLIENT_USERNAME -accountPassword $CLIENT_PASSWORD -render "none" -no-fresh -world "members" -params config=puropuroboyautomation
+echo xvfb-run -a java --illegal-access=permit -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool" -username $DB_USERNAME -password $DB_PASSWORD -covert -accountUsername $CLIENT_USERNAME -accountPassword $CLIENT_PASSWORD -render "none" -no-fresh -world "members" -params config=puropuroboyautomation
+xvfb-run -a java --illegal-access=permit -jar /root/DreamBot/BotData/client.jar -lowDetail -noClickWalk -script "BNY Automation Tool" -username $DB_USERNAME -password $DB_PASSWORD -covert -accountUsername $CLIENT_USERNAME -accountPassword $CLIENT_PASSWORD -render "none" -no-fresh -world "members" -params config=puropuroboyautomation
