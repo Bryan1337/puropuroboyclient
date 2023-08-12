@@ -9,18 +9,6 @@ RUN apt-get install xvfb -y
 # Install wget
 RUN apt-get install wget -y
 
-# Make folder for scripts
-RUN mkdir -p /root/DreamBot/Scripts/
-# Download PuroPuroBoyManager
-RUN wget -qO /root/DreamBot/Scripts/PuroPuroBoyManager.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoyManager.jar
-# Download PuroPuroBoy
-RUN wget -qO /root/DreamBot/Scripts/PuroPuroBoy.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoy.jar
-
-# Make folder for configs
-RUN mkdir -p /root/DreamBot/Scripts/Bun/AutomationTool
-# Download automation script
-RUN wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroautomation.cfg
-
 # Download DreamBot client
 RUN wget https://dreambot.org/DBLauncher.jar
 # Make client executable
