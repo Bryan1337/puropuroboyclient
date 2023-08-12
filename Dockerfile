@@ -9,9 +9,6 @@ RUN apt-get install xvfb -y
 # Install wget
 RUN apt-get install wget -y
 
-# Download DreamBot client
-RUN wget https://dreambot.org/DBLauncher.jar
-
 # Make folder for scripts
 RUN mkdir -p /root/DreamBot/Scripts/
 # Download PuroPuroBoyManager
@@ -24,9 +21,10 @@ RUN mkdir -p /root/DreamBot/Scripts/Bun/AutomationTool
 # Download automation script
 RUN wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroautomation.cfg
 
+# Download DreamBot client
+RUN wget https://dreambot.org/DBLauncher.jar
 # Make client executable
 RUN chmod u+x DBLauncher.jar
-
 # Run initial client build and timeout after the files have been loaded
 # Pipe command so exit codes are ignored (timeout returns ecode 124)
 RUN timeout 15 xvfb-run java -jar DBLauncher.jar || :
@@ -35,4 +33,4 @@ RUN timeout 15 xvfb-run java -jar DBLauncher.jar || :
 EXPOSE 6565 6565
 
 # Run start script on startup
-CMD ["/bin/sh", "-c", "wget -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh | sh && tail -f /dev/null"]
+CMD wget -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh | sh

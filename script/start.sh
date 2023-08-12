@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+
+# Fetch the client credentials from the API and export them as environment variables
+$(wget -qO- https://api.overdu.in/client/inactive | awk -F':' "{printf \"export CLIENT_EMAIL=%s\\nexport CLIENT_PASSWORD=%s\\n\", \$1, \$2}")
+
 echo "----CLIENT CREDENTIALS----"
 echo $CLIENT_EMAIL
 echo $CLIENT_PASSWORD
@@ -7,9 +12,6 @@ echo "----DB CREDENTIALS----"
 echo $DB_USERNAME
 echo $DB_PASSWORD
 echo "--------"
-
-# Fetch the client credentials from the API and export them as environment variables
-$(wget -qO- https://api.overdu.in/client/inactive | awk -F':' "{printf \"export CLIENT_EMAIL=%s\\nexport CLIENT_PASSWORD=%s\\n\", \$1, \$2}")
 
 # CD to the root directory
 cd /root/
