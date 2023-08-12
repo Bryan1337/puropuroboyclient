@@ -15,7 +15,7 @@ RUN wget https://dreambot.org/DBLauncher.jar
 # Make folder for scripts
 RUN mkdir -p /root/DreamBot/Scripts/
 # Download PuroPuroBoy
-RUN wget -qO /root/DreamBot/Scripts/PuroPuroBoy-1.0.0-dep-included.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoy-1.0.0-dep-included.jar
+RUN wget -qO /root/DreamBot/Scripts/PuroPuroBoy.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoy.jar
 
 # Make folder for configs
 RUN mkdir -p /root/DreamBot/Scripts/Bun/AutomationTool
