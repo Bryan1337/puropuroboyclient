@@ -3,23 +3,23 @@
 # Fetch the client credentials from the API and export them as environment variables
 # This will block the script until a client is found
 while true; do
-
     response=$(wget -qO- https://api.overdu.in/client/inactive)
 
-	echo "Fetching inactive client from API..."
+    echo "Fetching inactive client from API..."
 
-     if [ -n "$response" ]; then
+    if [ -n "$response" ]; then
+        echo "Found inactive client, writing to environment variables..."
 
-	 	echo "Found inactive client, writing to environment variables..."
+        CLIENT_EMAIL=$(echo "$response" | cut -d ':' -f 1)
+        CLIENT_PASSWORD=$(echo "$response" | cut -d ':' -f 2)
 
-        IFS=':' read -r CLIENT_EMAIL CLIENT_PASSWORD <<< "$response"
         export CLIENT_EMAIL
         export CLIENT_PASSWORD
+
         break
     fi
 
-	echo "No inactive clients found, waiting 5 seconds before retrying..."
-
+    echo "No inactive clients found, waiting 5 seconds before retrying..."
     sleep 5  # Add a small delay before the next iteration
 done
 
