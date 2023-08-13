@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Fetch the client credentials from the API and export them as environment variables
 # This will block the script until a client is found
