@@ -34,14 +34,14 @@ echo "--------"
 # Make folder for scripts
 mkdir -p /root/DreamBot/Scripts/
 # Download PuroPuroBoyManager
-wget -qO /root/DreamBot/Scripts/PuroPuroBoyManager.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoyManager.jar
+wget -qO - --follow-redirects /root/DreamBot/Scripts/PuroPuroBoyManager.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoyManager.jar
 # Download PuroPuroBoy
-wget -qO /root/DreamBot/Scripts/PuroPuroBoy.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoy.jar
+wget -qO - --follow-redirects /root/DreamBot/Scripts/PuroPuroBoy.jar https://github.com/Bryan1337/puropuroboyclient/raw/master/jar/PuroPuroBoy.jar
 
 # Make folder for configs
 mkdir -p /root/DreamBot/Scripts/Bun/AutomationTool
 # Download automation script
-wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroautomation.cfg
+wget -qO - --follow-redirects /root/DreamBot/Scripts/Bun/AutomationTool/puropuroautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropuroautomation.cfg
 
 # Forward local port to mule server
 # TODO replace ip with env variable
