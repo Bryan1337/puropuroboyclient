@@ -17,8 +17,8 @@ RUN chmod u+x DBLauncher.jar
 # Pipe command so exit codes are ignored (timeout returns ecode 124)
 RUN timeout 15 xvfb-run java -jar DBLauncher.jar || :
 
-# Expose mule ports
-EXPOSE 6565 6565
+# Expose mule port
+EXPOSE 6565
 
 # Run start script on startup
 CMD wget -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh | sh
