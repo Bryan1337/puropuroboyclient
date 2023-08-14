@@ -3,7 +3,7 @@
 # Fetch the client credentials from the API and export them as environment variables
 # This will block the script until a client is found
 while true; do
-    response=$(wget -qO- https://api.overdu.in/client/inactive)
+    response=$(wget -qO- https://api.overdu.in/client/inactive?consume=1)
 
     echo "Fetching inactive client from API..."
 
