@@ -45,7 +45,7 @@ wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroautomation.cfg https:
 
 # Forward local port to mule server
 # TODO replace ip with env variable
-nohup socat TCP-LISTEN:6565,fork,reuseaddr TCP:172.31.22.46:6565 >/dev/null 2>&1 &
+nohup socat TCP-LISTEN:6565,fork,reuseaddr TCP:83.80.143.93:6565 >/dev/null 2>&1 &
 
 # Start client
 echo "Starting PuroPuroBoyManager"
