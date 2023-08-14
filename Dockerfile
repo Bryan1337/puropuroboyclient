@@ -8,6 +8,8 @@ RUN apt-get install default-jre -y
 RUN apt-get install xvfb -y
 # Install wget
 RUN apt-get install wget -y
+# Install socat
+RUN apt-get install socat -y
 
 # Download DreamBot client
 RUN wget https://dreambot.org/DBLauncher.jar
