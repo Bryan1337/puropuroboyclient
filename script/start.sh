@@ -47,6 +47,9 @@ wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropuroautomation.cfg https:
 # TODO replace ip with env variable
 nohup socat TCP-LISTEN:6565,fork,reuseaddr TCP:83.80.143.93:6565 >/dev/null 2>&1 &
 
+# Fetch latest dreambot client
+timeout 15 xvfb-run java -jar DBLauncher.jar || :
+
 # Start client
 echo "Starting PuroPuroBoyManager"
 
