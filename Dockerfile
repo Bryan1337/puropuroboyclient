@@ -10,6 +10,8 @@ RUN apt-get install xvfb -y
 RUN apt-get install wget -y
 # Install socat
 RUN apt-get install socat -y
+# Install inotify tools
+RUN apt-get install inotify-tools -y
 
 # Download DreamBot client
 RUN wget https://dreambot.org/DBLauncher.jar

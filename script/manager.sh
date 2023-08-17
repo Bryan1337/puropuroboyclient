@@ -2,16 +2,21 @@
 
 LOG_DIR="/root/DreamBot/Logs"
 
-for log_file in "$LOG_DIR"/*; do
 
-    tail -n 0 -F "$log_file" | while read -r line; do
+# Start watching for new files and changes in the directory
+inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
-        echo "GOT LINE from $log_file"
+    file_path=$(echo "$event" | awk '{print $3}')  # Get the path of the changed/created file
 
-        if echo "$line" | grep -q "DISABLED"; then
+    if [ -f "$file_path" ]; then  # Check if the path points to a regular file
 
-            echo "Account marked as DISABLED in $log_file"
-            # curl -X POST -d "name=$CLIENT_EMAIL"
+        new_line=$(tail -n 1 "$file_path")  # Read the last line of the file
+
+        if echo "$new_line" | grep -q "BANNED"; then
+
+            echo "Found 'BANNED' in log: $new_line"
+
+            # Perform further actions here if needed
         fi
-    done
+    fi
 done
