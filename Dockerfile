@@ -12,6 +12,8 @@ RUN apt-get install wget -y
 RUN apt-get install socat -y
 # Install inotify tools
 RUN apt-get install inotify-tools -y
+# Install curl
+RUN apt-get install curl -y
 
 # Download DreamBot client
 RUN wget https://dreambot.org/DBLauncher.jar
