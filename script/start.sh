@@ -57,7 +57,6 @@ wget -qO /root/manager.sh https://github.com/Bryan1337/puropuroboyclient/raw/mas
 # Make it executable
 chmod +x /root/manager.sh
 
-
 # Fetch latest dreambot client
 # timeout 15 xvfb-run java -jar DBLauncher.jar || :
 
