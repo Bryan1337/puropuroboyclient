@@ -9,6 +9,8 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
     file_path=$(echo "$event" | awk '{print $3}')  # Get the path of the changed/created file
 
+	echo "FP $file_path"
+
     if [ -f "$file_path" ]; then  # Check if the path points to a regular file
 
 
