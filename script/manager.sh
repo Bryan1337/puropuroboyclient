@@ -17,7 +17,11 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 			curl -X POST -H "Content-Type: application/json" -d "{\"name\":$CLIENT_EMAIL}" "https://api.overdu.in/banned"
 
-			kill ${pidof java}
+			echo "KILLING SCRIPT"
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
         fi
     fi
 done
