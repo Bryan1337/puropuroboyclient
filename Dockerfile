@@ -25,4 +25,4 @@ RUN timeout 15 xvfb-run java -jar DBLauncher.jar || :
 EXPOSE 6565
 
 # Run start script on startup
-CMD wget -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh | sh
+CMD wget --no-cache -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start.sh | sh
