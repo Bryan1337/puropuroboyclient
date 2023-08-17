@@ -13,11 +13,9 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
         if echo "$new_line" | grep -q "DISABLED"; then
 
-            echo "Found 'DISABLED' in logs"
+            echo "Account banned! killing script..."
 
 			curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"$CLIENT_EMAIL\"}" "https://api.overdu.in/banned"
-
-			echo "KILLING SCRIPT"
 
 			java_pid=$(pidof java)
 
