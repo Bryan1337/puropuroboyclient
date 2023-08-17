@@ -2,6 +2,7 @@
 
 LOG_DIR="/root/DreamBot/Logs"
 
+
 tail -n 0 -F "$LOG_DIR"/* | while read -r line; do
 
 	echo "GOT LINE"

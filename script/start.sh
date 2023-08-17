@@ -20,8 +20,8 @@ while true; do
         break
     fi
 
-    echo "No inactive clients found, waiting 5 seconds before retrying..."
-    sleep 5  # Add a small delay before the next iteration
+    echo "No inactive clients found, waiting 10 seconds before retrying..."
+    sleep 10 # Add a small delay before the next iteration
 done
 
 echo "----CLIENT CREDENTIALS----"
