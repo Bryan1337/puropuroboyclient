@@ -6,7 +6,7 @@ while true; do
 
     response=$(wget -qO- "https://api.overdu.in/client/inactive?consume=1&origin=$CLIENT_ORIGIN")
 
-    echo "Fetching inactive client from API... with origin $CLIENT_ORIGIN"
+    echo "Fetching inactive client from API with origin $CLIENT_ORIGIN ..."
 
     if [ -n "$response" ]; then
         echo "Found inactive client, writing to environment variables..."
@@ -48,11 +48,12 @@ wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropurojarautomation.cfg htt
 # TODO replace ip with env variable
 nohup socat TCP-LISTEN:6565,fork,reuseaddr TCP:83.80.143.93:6565 >/dev/null 2>&1 &
 
+
 # Fetch the manager script
-wget -qO /root/scripts/manager.sh https://github.com/Bryan1337/puropuroboyclient/raw/master/script/manager.sh
+wget -qO /root/manager.sh https://github.com/Bryan1337/puropuroboyclient/raw/master/script/manager.sh
 
 # Run the manager in a different thread
-nohup /root/scripts/manager.sh >/dev/null 2>&1 &
+nohup /root/manager.sh >/dev/null 2>&1 &
 
 # Fetch latest dreambot client
 timeout 15 xvfb-run java -jar DBLauncher.jar || :
