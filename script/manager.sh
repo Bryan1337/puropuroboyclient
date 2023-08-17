@@ -13,9 +13,9 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
         if echo "$new_line" | grep -q "DISABLED"; then
 
-            echo "Found 'DISABLED' in log: $new_line"
+            echo "Found 'DISABLED' in logs"
 
-			exit 0
+			exit 1
             # Perform further actions here if needed
         fi
     fi
