@@ -53,7 +53,7 @@ nohup socat TCP-LISTEN:6565,fork,reuseaddr TCP:83.80.143.93:6565 >/dev/null 2>&1
 wget -qO /root/manager.sh https://github.com/Bryan1337/puropuroboyclient/raw/master/script/manager.sh
 
 # Run the manager in a different thread
-nohup /root/manager.sh >/dev/null 2>&1 &
+nohup /root/manager.sh &
 
 # Fetch latest dreambot client
 timeout 15 xvfb-run java -jar DBLauncher.jar || :
