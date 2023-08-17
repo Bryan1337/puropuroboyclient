@@ -51,7 +51,6 @@ wget -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropurojarautomation.cfg htt
 # TODO replace ip with env variable
 nohup socat TCP-LISTEN:6565,fork,reuseaddr TCP:83.80.143.93:6565 >/dev/null 2>&1 &
 
-
 # Fetch the manager script
 wget -qO /root/manager.sh https://github.com/Bryan1337/puropuroboyclient/raw/master/script/manager.sh
 # Make it executable
