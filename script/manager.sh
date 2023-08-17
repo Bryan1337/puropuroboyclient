@@ -15,8 +15,9 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
             echo "Found 'DISABLED' in logs"
 
-			exit 1
-            # Perform further actions here if needed
+			curl -X POST -H "Content-Type: application/json" -d "{'name':$CLIENT_EMAIL}" "https://api.overdu.in/client/banned"
+
+			kill ${pidof java}
         fi
     fi
 done
