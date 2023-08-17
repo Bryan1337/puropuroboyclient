@@ -59,7 +59,7 @@ chmod +x /root/manager.sh
 
 
 # Fetch latest dreambot client
-timeout 15 xvfb-run java -jar DBLauncher.jar || :
+# timeout 15 xvfb-run java -jar DBLauncher.jar || :
 
 # Run the manager in a different thread
 nohup /root/manager.sh &
