@@ -11,12 +11,11 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
         new_line=$(tail -n 1 "$LOG_DIR/$file_path")  # Read the last line of the file
 
-		echo "NL $new_line"
-
         if echo "$new_line" | grep -q "BANNED"; then
 
             echo "Found 'BANNED' in log: $new_line"
 
+			exit 0
             # Perform further actions here if needed
         fi
     fi
