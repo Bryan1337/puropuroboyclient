@@ -32,6 +32,9 @@ echo $DB_USERNAME
 echo $DB_PASSWORD
 echo "--------"
 
+# Make folder for logs
+mkdir -p /root/DreamBot/Logs/
+
 # Make folder for scripts
 mkdir -p /root/DreamBot/Scripts/
 # Download PuroPuroBoyManager
