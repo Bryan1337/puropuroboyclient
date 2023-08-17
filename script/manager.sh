@@ -11,9 +11,10 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
     if [ -f "$file_path" ]; then  # Check if the path points to a regular file
 
-		echo "NL $new_line"
 
         new_line=$(tail -n 1 "$file_path")  # Read the last line of the file
+
+		echo "NL $new_line"
 
         if echo "$new_line" | grep -q "BANNED"; then
 
