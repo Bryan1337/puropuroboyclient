@@ -22,6 +22,17 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 			kill "$java_pid"
         fi
 
+        if echo "$new_line" | grep -q "ACCOUNT_LOCKED"; then
+
+            echo "Account locked! killing script..."
+
+			curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"$CLIENT_EMAIL\"}" "https://api.overdu.in/client/locked"
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+        fi
+
 		if echo "$new_line" | grep -q "Should World Hop on Login Error is active"; then
 
             echo "Account login blocked. Adding 15 minute delay and killing script..."
@@ -32,5 +43,8 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 			kill "$java_pid"
 		fi
+
+
+
     fi
 done
