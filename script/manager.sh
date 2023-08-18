@@ -43,8 +43,46 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 			kill "$java_pid"
 		fi
-
-
-
     fi
+done
+
+while true; do
+
+    response=$(wget -qO- "https://api.overdu.in/client/activity?email=$CLIENT_EMAIL")
+
+    echo "Fetching client activity from API..."
+
+    if [ -n "$response" ]; then
+
+        echo "Found inactive client, writing to environment variables..."
+
+        if echo "$response" | grep -q "INACTIVE"; then
+
+			echo "Client has been inactive for 5 minutes, something must have gone wrong. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+		fi
+
+		if( echo "$response" | grep -q "LOCKED" ); then
+
+			echo "Client is locked. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+		fi
+
+		if( echo "$response" | grep -q "DISABLED" ); then
+
+			echo "Client is disabled. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+		fi
+    fi
+
+    sleep 30 # Add a small delay before the next iteration
 done
