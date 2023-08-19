@@ -43,6 +43,15 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 			kill "$java_pid"
 		fi
+
+		if echo "$new_line" | grep -q "error_game_crash"; then
+
+			echo "Client crashed. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+		fi
     fi
 done
 
