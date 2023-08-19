@@ -33,7 +33,7 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 			kill "$java_pid"
         fi
 
-		if echo "$new_line" | grep -q "Should World Hop on Login Error is active"; then
+		if echo "$new_line" | grep -q "Should World Hop on Login Error is active" && ! echo "$new_line" | grep -q "MEMBERS_AREA"; then
 
             echo "Account login blocked. Adding 15 minute delay and killing script..."
 
@@ -53,8 +53,6 @@ while true; do
     echo "Fetching client activity from API..."
 
     if [ -n "$response" ]; then
-
-        echo "Found inactive client, writing to environment variables..."
 
         if echo "$response" | grep -q "INACTIVE"; then
 
