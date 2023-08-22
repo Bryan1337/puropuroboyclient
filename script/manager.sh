@@ -52,6 +52,16 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 			kill "$java_pid"
 		fi
+
+		if echo "$new_line" | grep -q "You need to be logged in before starting a script!"; then
+
+			echo "Client logged out. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+
+		fi
     fi
 done
 
