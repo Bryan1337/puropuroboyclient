@@ -62,6 +62,17 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 			kill "$java_pid"
 
 		fi
+
+		if echo "$new_line" | grep -q "SERVER_UPDATED"; then
+
+			  echo "System update! Adding 15 minutes delay and killing script..."
+
+			curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"$CLIENT_EMAIL\"}" "https://api.overdu.in/client/login-blocked"
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+		fi
     fi
 done
 
@@ -82,7 +93,7 @@ while true; do
 			kill "$java_pid"
 		fi
 
-		if( echo "$response" | grep -q "LOCKED" ); then
+		if echo "$response" | grep -q "LOCKED"; then
 
 			echo "Client is locked. Killing script..."
 
@@ -91,7 +102,7 @@ while true; do
 			kill "$java_pid"
 		fi
 
-		if( echo "$response" | grep -q "DISABLED" ); then
+		if echo "$response" | grep -q "DISABLED"; then
 
 			echo "Client is disabled. Killing script..."
 
