@@ -63,6 +63,15 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 		fi
 
+		if echo "$new_line" | grep -q "java.lang.AssertionError"; then
+
+			echo "Client crashed. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+		fi
+
 		if echo "$new_line" | grep -q "SERVER_UPDATED"; then
 
 			  echo "System update! Adding 15 minutes delay and killing script..."
