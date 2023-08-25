@@ -63,6 +63,16 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 		fi
 
+		if echo "$new_line" | grep -q "MEMBERS_WORLD"; then
+
+			echo "Client membership ran out. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+
+		fi
+
 		if echo "$new_line" | grep -q "java.lang.AssertionError"; then
 
 			echo "Client crashed. Killing script..."
