@@ -93,9 +93,9 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 
 		if echo "$new_line" | grep -q "SERVER_UPDATED"; then
 
-			  echo "System update! Adding 15 minutes delay and killing script..."
+			  echo "System update! Adding random delay and killing script..."
 
-			curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"$CLIENT_EMAIL\"}" "https://api.overdu.in/client/login-blocked"
+			curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"$CLIENT_EMAIL\"}" "https://api.overdu.in/client/system-update"
 
 			java_pid=$(pidof java)
 
