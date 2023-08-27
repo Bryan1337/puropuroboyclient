@@ -44,6 +44,15 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 			kill "$java_pid"
 		fi
 
+		if echo "$new_line" | grep -q "Not enough space"; then
+
+			echo "Too much memory used. Killing script..."
+
+			java_pid=$(pidof java)
+
+			kill "$java_pid"
+		fi
+
 		if echo "$new_line" | grep -q "error_game"; then
 
 			echo "Client crashed. Killing script..."
