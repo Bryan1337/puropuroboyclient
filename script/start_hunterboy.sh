@@ -23,7 +23,7 @@ wget --no-cache -qO /root/manager.sh https://github.com/Bryan1337/puropuroboycli
 chmod +x /root/manager.sh
 
 # Fetch latest dreambot client
-timeout 15 xvfb-run java -jar DBLauncher.jar || :
+timeout 15 xvfb-run -a java -jar DBLauncher.jar || :
 
 # Run the manager in a different thread
 nohup /root/manager.sh &
