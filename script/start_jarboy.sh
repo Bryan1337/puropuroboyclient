@@ -1,40 +1,7 @@
 #!/bin/sh
 
-# Fetch the client credentials from the API and export them as environment variables
-# This will block the script until a client is found
-while true; do
-
-    response=$(wget -qO- "https://api.overdu.in/client/inactive?consume=1&origin=$CLIENT_ORIGIN")
-
-    echo "Fetching inactive client from API with origin $CLIENT_ORIGIN ..."
-
-    if [ -n "$response" ]; then
-        echo "Found inactive client, writing to environment variables..."
-
-        CLIENT_EMAIL=$(echo "$response" | cut -d ':' -f 1)
-        CLIENT_PASSWORD=$(echo "$response" | cut -d ':' -f 2)
-
-        export CLIENT_EMAIL
-        export CLIENT_PASSWORD
-
-        break
-    fi
-
-    echo "No inactive clients found, waiting 10 seconds before retrying..."
-    sleep 10 # Add a small delay before the next iteration
-done
-
-echo "----CLIENT CREDENTIALS----"
-echo $CLIENT_EMAIL
-echo $CLIENT_PASSWORD
-echo "----DB CREDENTIALS----"
-echo $DB_USERNAME
-echo $DB_PASSWORD
-echo "--------"
-
 # Make folder for logs
 mkdir -p /root/DreamBot/Logs/
-
 # Make folder for scripts
 mkdir -p /root/DreamBot/Scripts/
 # Download PuroPuroBoyManager
