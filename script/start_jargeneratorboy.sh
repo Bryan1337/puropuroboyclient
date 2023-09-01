@@ -12,7 +12,7 @@ wget --no-cache -qO /root/DreamBot/Scripts/PuroPuroJarGeneratorBoy.jar https://g
 # Make folder for configs
 mkdir -p /root/DreamBot/Scripts/Bun/AutomationTool
 # Download automation script
-wget --no-cache -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropurojarautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropurojargeneratorautomation.cfg
+wget --no-cache -qO /root/DreamBot/Scripts/Bun/AutomationTool/puropurojargeneratorautomation.cfg https://raw.githubusercontent.com/Bryan1337/puropuroboyclient/master/automation/puropurojargeneratorautomation.cfg
 
 # Forward local port to mule server
 # TODO replace ip with env variable
