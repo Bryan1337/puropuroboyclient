@@ -102,7 +102,7 @@ inotifywait -m -e create -e modify "$LOG_DIR" | while read -r event; do
 			kill "$java_pid"
 		fi
     fi
-done
+done &
 
 while true; do
 
