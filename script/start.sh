@@ -34,6 +34,8 @@ echo "--------"
 
 if [ "$SCRIPT_NAME" = "JAR_GENERATOR" ]; then
     wget --no-cache -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start_jargeneratorboy.sh | sh
+elif [ "$SCRIPT_NAME" = "GNOME_BOY" ]; then
+    wget --no-cache -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start_gnomeboy.sh | sh
 elif [ "$SCRIPT_NAME" = "JAR_SWAPPER" ]; then
     wget --no-cache -O - https://github.com/Bryan1337/puropuroboyclient/raw/master/script/start_jarboy.sh | sh
 else
