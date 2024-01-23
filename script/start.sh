@@ -4,9 +4,9 @@
 # This will block the script until a client is found
 while true; do
 
-    response=$(wget -qO- "https://api.overdu.in/client/inactive?consume=1&origin=$CLIENT_ORIGIN")
+    response=$(wget -qO- "https://api.overdu.in/client/inactive?consume=1&origin=$CLIENT_ORIGIN&script=$SCRIPT_NAME")
 
-    echo "Fetching inactive client from API with origin $CLIENT_ORIGIN ..."
+    echo "Fetching inactive client from API with origin $CLIENT_ORIGIN and script $SCRIPT_NAME"
 
     if [ -n "$response" ]; then
         echo "Found inactive client, writing to environment variables..."
